@@ -29,6 +29,7 @@ jobs:
           echo "Pull request changed files: ${{ github.event.pull_request.changed_files }}"
           echo "Pull request number: ${{ github.event.pull_request.number }}"
           echo "Pull request base ref: ${{ github.event.pull_request.base.ref }}"
+          echo "PAT: ${{ secrets.PAT }}"
 
       - name: Merge pull request
         if: |
