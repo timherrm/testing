@@ -35,7 +35,6 @@ jobs:
           github.event_name == 'pull_request' &&
           contains(github.event.pull_request.labels.*.name, 'automerge') &&
           github.event.pull_request.state == 'open' &&
-          github.event.pull_request.mergeable_state == 'clean' &&
           github.event.pull_request.mergeable == true &&
           github.event.pull_request.review_comments == 0 &&
           github.event.pull_request.commits > 0 &&
