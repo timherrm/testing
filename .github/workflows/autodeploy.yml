@@ -55,4 +55,5 @@ jobs:
           git config --global user.email "actions@github.com"
           git fetch origin pull/${{ github.event.pull_request.number }}/merge --update-head-ok
           git merge FETCH_HEAD --no-edit
+          git pull origin ${{ github.event.pull_request.base.ref }}
           git push origin HEAD:refs/heads/${{ github.event.pull_request.base.ref }}
