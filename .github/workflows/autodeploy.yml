@@ -17,6 +17,19 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
+      - name: Output context variables
+        run: |
+          echo "Event name: ${{ github.event_name }}"
+          echo "Pull request labels: ${{ toJson(github.event.pull_request.labels.*.name) }}"
+          echo "Pull request state: ${{ github.event.pull_request.state }}"
+          echo "Pull request mergeable state: ${{ github.event.pull_request.mergeable_state }}"
+          echo "Pull request mergeable: ${{ github.event.pull_request.mergeable }}"
+          echo "Pull request review comments: ${{ github.event.pull_request.review_comments }}"
+          echo "Pull request commits: ${{ github.event.pull_request.commits }}"
+          echo "Pull request changed files: ${{ github.event.pull_request.changed_files }}"
+          echo "Pull request number: ${{ github.event.pull_request.number }}"
+          echo "Pull request base ref: ${{ github.event.pull_request.base.ref }}"
+
       - name: Merge pull request
         if: |
           github.event_name == 'pull_request' &&
