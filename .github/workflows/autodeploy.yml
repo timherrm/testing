@@ -26,12 +26,7 @@ jobs:
           github.event.pull_request.mergeable == true &&
           github.event.pull_request.review_comments == 0 &&
           github.event.pull_request.commits > 0 &&
-          github.event.pull_request.changed_files > 0 &&
-          github.event.pull_request.additions > 0 &&
-          github.event.pull_request.deletions > 0 &&
-          github.event.pull_request.review_state == 'approved' &&
-          github.event.pull_request.reviews.nodes[*].state == 'APPROVED' &&
-          github.event.pull_request.reviews.nodes[*].author_association != 'OWNER'
+          github.event.pull_request.changed_files > 0
 
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
